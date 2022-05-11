@@ -7,3 +7,5 @@ To get running locally:
 3) run `node index.js`
 4) open localhost:3000 in your browser
 5) Enjoy :)
+
+Make sure you are connected to the internet as uses a MySQL DB that is deployed on Heroku
