@@ -21,7 +21,7 @@ class DeletedItem {
   }
 
   static findById(id) {
-    const sql = `SELECT id FROM DELETED_ITEMS WHERE id = ${id} LIMIT 1`;
+    const sql = `SELECT inventoryId FROM DELETED_ITEMS WHERE id = ${id} LIMIT 1`;
 
     return db.execute(sql);
   }
