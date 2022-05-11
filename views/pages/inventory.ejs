@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <div class="title" style="display: flex; flex-direction: row;">
+      <h2> Inventory </h2>
+      <div style="height: 100%; width: 100%">
+        <a href="/createForm">Create</a>
+      </div>
+    </div>
+
+
+    <div class="inventory-list">
+      <table>
+        <tr>
+          <th>Barcode</th>
+          <th>Sender Name</th>
+          <th>Receiver Name</th>
+          <th>Inventory Item Name</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        <% inventory.forEach(function(inventoryItem) { %>
+          <tr>
+            <td>
+              <%= inventoryItem.barcodeDigits %>
+            </td>
+            <td>
+              <%= inventoryItem.sender %>
+            </td>
+            <td>
+              <%= inventoryItem.receiver %>
+            </td>
+            <td>
+              <%= inventoryItem.name %>
+            </td>
+            <td>
+              <%= inventoryItem.description %>
+            </td>
+            <td>
+              <%= inventoryItem.date %>
+            </td>
+            <td><a
+                href="/<%= inventoryItem.id %>/editForm?barcodeDigits=<%= inventoryItem.barcodeDigits %>&sender=<%= inventoryItem.sender %>&receiver=<%= inventoryItem.receiver %>&name=<%= inventoryItem.name %>&description=<%= inventoryItem.description %>">
+                Edit</a></td>
+            <td><a href="/<%= inventoryItem.id %>/deleteForm">Delete</a></td>
+          </tr>
+          <% }); %>
+      </table>
+    </div>
+
+  </main>
+</body>
+
+</html>

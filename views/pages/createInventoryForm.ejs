@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <div class="title" style="display: flex; flex-direction: row;">
+      <h2> Create Inventory Item </h2>
+    </div>
+
+    <% if(errors.length !==0){ %>
+      <div>
+        <h5 style="color: red;">Some or all of required fields missing</h5>
+      </div>
+      <% } %>
+
+        <div>
+          <form action="/create" method="post">
+            Barcode *: <input type="text" name="barcodeDigits" /><br><br>
+            Sender Name *: <input type="text" name="sender" /><br><br>
+            Receiver Name: <input type="text" name="receiver" /><br><br>
+            Inventory Item Name: <input type="text" name="name" /><br><br>
+            Description: <input type="text" name="description" /><br><br>
+            <input type="submit" value="Create" /><br><br>
+            <hr>
+          </form>
+        </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <h2> Deleted Inventory </h2>
+
+    <div class="deleted-inventory-list">
+      <table>
+        <tr>
+          <th>Barcode</th>
+          <th>Sender Name</th>
+          <th>Receiver Name</th>
+          <th>Inventory Item Name</th>
+          <th>Description</th>
+          <th>Date Created</th>
+          <th>Date Deleted</th>
+          <th>Deletion Comment</th>
+          <th>Undelete</th>
+        </tr>
+        <% deletedInventory.forEach(function(inventoryItem) { %>
+          <tr>
+            <td>
+              <%= inventoryItem.barcodeDigits %>
+            </td>
+            <td>
+              <%= inventoryItem.sender %>
+            </td>
+            <td>
+              <%= inventoryItem.receiver %>
+            </td>
+            <td>
+              <%= inventoryItem.name %>
+            </td>
+            <td>
+              <%= inventoryItem.description %>
+            </td>
+            <td>
+              <%= inventoryItem.dateCreated %>
+            </td>
+            <td>
+              <%= inventoryItem.dateDeleted %>
+            </td>
+            <td>
+              <%= inventoryItem.comment %>
+            </td>
+            <td>
+              <div>
+                <form action="/<%= inventoryItem.deletedId %>/undelete?_method=PUT" method="post">
+                  <input type="submit" value="Undelete" />
+                </form>
+              </div>
+            </td>
+          </tr>
+          <% }); %>
+      </table>
+    </div>
+
+  </main>
+</body>
+
+</html>

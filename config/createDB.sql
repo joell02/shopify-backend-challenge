@@ -1,0 +1,22 @@
+CREATE TABLE heroku_f501cfe9db0c1f3.inventory_items (
+  id INT NOT NULL AUTO_INCREMENT,
+  date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  name VARCHAR(45) NULL,
+  description VARCHAR(5000) NULL,
+  barcodeDigits VARCHAR(100) NOT NULL,
+  sender VARCHAR(100) NOT NULL,
+  receiver VARCHAR(100) NULL,
+  status ENUM('Ready', 'Deleted') NOT NULL,
+
+  PRIMARY KEY (id),
+  UNIQUE INDEX ID_UNIQUE (id ASC));
+
+CREATE TABLE heroku_f501cfe9db0c1f3.deleted_items (
+  id INT NOT NULL AUTO_INCREMENT,
+  inventoryId INT NOT NULL,
+  comment VARCHAR(5000) NULL,
+  date DATETIME DEFAULT CURRENT_TIMESTAMP,
+  
+  PRIMARY KEY (id),
+  FOREIGN KEY (inventoryId) REFERENCES INVENTORY_ITEMS(id),
+  UNIQUE INDEX ID_UNIQUE (id ASC));

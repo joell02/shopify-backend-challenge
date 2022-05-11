@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/head'); %>
+</head>
+
+<body class="container">
+  <header>
+    <%- include('../partials/header'); %>
+  </header>
+
+  <main>
+    <div class="title" style="display: flex; flex-direction: row;">
+      <h2> Delete Inventory Item </h2>
+    </div>
+    <div>
+      <form action="/<%= id %>/delete?_method=PUT" method="post">
+        Deletion Comment: <input type="text" name="comment" /><br><br>
+        <input type="submit" value="Delete" /><br><br>
+        <hr>
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>
